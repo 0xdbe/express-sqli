@@ -17,13 +17,13 @@ db.serialize(function() {
 app.post('/login', function (req, res) {
     var username = req.body.username; // a valid username is admin
     var password = req.body.password; // a valid password is admin123
-    var query = "SELECT name FROM user where username = '" + username + "' and password = '" + password + "'";
+    var query = "SELECT name FROM user where username = ? and password = ?";
 
     console.log("username: " + username);
     console.log("password: " + password);
     console.log('query: ' + query);
     
-    db.get(query , function(err, row) {
+    db.get(query , [username, password], function(err, row) {
 
         if(err) {
             console.log('ERROR', err);
@@ -38,4 +38,3 @@ app.post('/login', function (req, res) {
 });
 
 app.listen(3000);
- 
