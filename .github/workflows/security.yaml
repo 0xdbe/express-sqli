@@ -12,6 +12,4 @@ jobs:
       - name: clone repo
         uses: actions/checkout@v3
       - name: analyse
-        run: semgrep scan --error --metrics=off --config=semgrep/ ./
-        env:
-          SEMGREP_BASELINE_REF: ${{ github.event.pull_request.base.sha }}
+        run: semgrep scan --error --metrics=off --baseline-commit ${{ github.event.pull_request.base.sha }} --config=semgrep/ ./
