@@ -3,16 +3,15 @@ name: security
 on:
   pull_request
 
-
 jobs:
   sast:
     runs-on: ubuntu-latest
+    container:
+      image: returntocorp/semgrep
     steps:
       - name: clone repo
         uses: actions/checkout@v3
       - name: analyse
-        uses: docker://returntocorp/semgrep
-        with:
-          args: semgrep scan --metrics=off --config=semgrep/ ./
+        run: semgrep scan --metrics=off --config=semgrep/ ./
         env:
-          SEMGREP_BASELINE_REF: 6533e025e476a9b8a20021e063912215da7ca875
+          SEMGREP_BASELINE_REF: ${{ github.event.pull_request.base.sha }}
