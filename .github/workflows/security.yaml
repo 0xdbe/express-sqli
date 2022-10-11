@@ -11,5 +11,7 @@ jobs:
     steps:
       - name: clone repo
         uses: actions/checkout@v3
+      - name: get info
+        run: ls -la ./
       - name: analyse
         run: semgrep scan --error --metrics=off --baseline-commit ${{ github.event.pull_request.base.sha }} --config=semgrep/ ./
