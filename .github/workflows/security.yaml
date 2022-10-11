@@ -12,4 +12,4 @@ jobs:
       - name: clone repo
         uses: actions/checkout@v3
       - name: analyse
-        run: semgrep scan --metrics=off --config=semgrep/ ./
+        run: semgrep scan --error --metrics=off --config=semgrep/ ./
