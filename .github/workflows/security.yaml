@@ -3,6 +3,7 @@ name: security
 on:
   pull_request
 
+
 jobs:
   sast:
     runs-on: ubuntu-latest
