@@ -12,4 +12,6 @@ jobs:
       - name: analyse
         uses: docker://returntocorp/semgrep
         with:
-          args: SEMGREP_BASELINE_REF=6533e025e476a9b8a20021e063912215da7ca875 semgrep scan --metrics=off --config=semgrep/ ./
+          args: semgrep scan --metrics=off --config=semgrep/ ./
+        env:
+          SEMGREP_BASELINE_REF: 6533e025e476a9b8a20021e063912215da7ca875
