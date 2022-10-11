@@ -1,0 +1,11 @@
+---
+name: security
+on: [push]
+jobs:
+  sast:
+    runs-on: ubuntu-latest
+    steps:
+      - name: analyse
+        uses: docker://returntocorp/semgrep
+        with:
+          args: semgrep ci
