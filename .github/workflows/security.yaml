@@ -7,6 +7,8 @@ jobs:
   sast:
     runs-on: ubuntu-latest
     steps:
+      - name: clone repo
+        uses: actions/checkout@v3
       - name: analyse
         uses: docker://returntocorp/semgrep
         with:
