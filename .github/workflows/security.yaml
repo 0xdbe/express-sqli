@@ -16,4 +16,4 @@ jobs:
       - name: marked git repo as safe
         run: git config --global --add safe.directory $(pwd)
       - name: analyse
-        run: semgrep scan --error --metrics=off --baseline-commit ${{ github.event.pull_request.base.sha }} --config=semgrep/ ./
+        run: semgrep scan --debug --error --metrics=off --baseline-commit ${{ github.event.pull_request.base.sha }} --config=semgrep/ ./
