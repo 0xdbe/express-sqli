@@ -1,0 +1,11 @@
+rules:
+  - id: sqlite-unsafe-query
+    patterns:
+      - pattern: |
+          $QUERY =  ... + ...
+    severity: ERROR
+    message: |
+      query should not be used.
+      (this is simple testing rules)
+    languages:
+      - javascript
