@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: clone repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: get info
         run: ls -la ./
       - name: marked git repo as safe
