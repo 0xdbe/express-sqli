@@ -20,8 +20,10 @@ app.post('/login', function (req, res) {
 
     console.log('test');
 
-    var query = "SELECT name FROM user where username = '" + username + "' and password = '" + password + "'";
+    // var query = "SELECT name FROM user where username = '" + username + "' and password = '" + password + "'";
     
+    var query = "SELECT name FROM user where username";
+
     console.log("username: " + username);
     console.log("password: " + password);
     console.log('query: ' + query);
